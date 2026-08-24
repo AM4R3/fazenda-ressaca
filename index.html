@@ -6,24 +6,22 @@
 <title>Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba</title>
 <meta name="description" content="Cabana na mata Ubatuba: Jaguatirica e Suçuarana, hospedagem design Ubatuba dentro de uma reserva de Mata Atlântica. Duas cabanas suspensas, projeto de arquitetura assinado, fazenda com piscina, barco e rios. Desde R$ 850/noite.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://fazendaressaca.com.br/">
-<!-- SUBSTITUIR: confirmar domínio final para canonical e OG -->
+<link rel="canonical" href="https://fazenda-ressaca.vercel.app/">
+<!-- SUBSTITUIR: trocar canonical/OG para https://fazendaressaca.com/ quando este site substituir o WordPress atual naquele domínio -->
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fazenda Ressaca">
 <meta property="og:title" content="Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba">
 <meta property="og:description" content="Duas cabanas suspensas numa reserva de Mata Atlântica em Ubatuba. você, aqui.">
-<meta property="og:image" content="https://fazendaressaca.com.br/og-image.jpg">
-<!-- SUBSTITUIR: URL real da foto de OG (a foto do hero — cabana suspensa com hóspede no deck) -->
-<meta property="og:url" content="https://fazendaressaca.com.br/">
+<meta property="og:image" content="https://fazenda-ressaca.vercel.app/img/hero.jpg">
+<meta property="og:url" content="https://fazenda-ressaca.vercel.app/">
 <meta property="og:locale" content="pt_BR">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba">
 <meta name="twitter:description" content="Duas cabanas suspensas numa reserva de Mata Atlântica em Ubatuba. você, aqui.">
-<meta name="twitter:image" content="https://fazendaressaca.com.br/og-image.jpg">
-<!-- SUBSTITUIR: URL real da foto de OG -->
+<meta name="twitter:image" content="https://fazenda-ressaca.vercel.app/img/hero.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +39,9 @@
     "addressRegion": "SP",
     "addressCountry": "BR"
   },
-  "priceRange": "A partir de R$ 850",
-  "image": "https://fazendaressaca.com.br/og-image.jpg",
+  "priceRange": "R$800 - R$1400",
+  "telephone": "+5512988978624",
+  "image": "https://fazenda-ressaca.vercel.app/img/hero.jpg",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -50,8 +49,8 @@
   }
 }
 </script>
-<!-- SUBSTITUIR: priceRange exato por cabana quando houver faixa real (acima usado apenas o piso conhecido, "R$ 850", sem inventar teto),
-     telephone (adicionar de volta o campo com o número de WhatsApp em formato E.164 quando existir), endereço completo (rua/CEP) se for divulgável -->
+<!-- priceRange e telephone confirmados no motor de reservas real (fazendaressacas.lodgify.com) em 2026-08-24.
+     SUBSTITUIR: endereço completo (rua/CEP) se for divulgável -->
 
 <style>
 :root{
@@ -180,12 +179,19 @@ a{ color:inherit; text-decoration:none; }
   min-height:100svh;
   display:flex;
   align-items:flex-end;
-  background:linear-gradient(160deg, #4A5D42, #253A2C 60%, #16241A);
-  /* placeholder da foto real: cabana suspensa com hóspede no deck, já usada na página atual */
+  background:var(--mata);
+  overflow:hidden;
+}
+.hero__img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:0;
 }
 .hero::after{
   content:"";
   position:absolute; inset:0;
+  z-index:1;
   background:linear-gradient(0deg, rgba(22,36,26,0.55) 0%, rgba(22,36,26,0.05) 45%, rgba(22,36,26,0.15) 100%);
   pointer-events:none;
 }
@@ -257,7 +263,9 @@ section{ position:relative; }
 .exp__foto{
   width:100%;
   aspect-ratio:3/4;
-  background:linear-gradient(150deg, #6B7B60, #3C4E37 55%, #1E2E1A);
+  object-fit:cover;
+  display:block;
+  background:var(--musgo);
 }
 @media(min-width:768px){
   .exp{ grid-template-columns:1fr 1fr; gap:64px; }
@@ -274,7 +282,9 @@ section{ position:relative; }
 .cabana__foto{
   width:100%;
   aspect-ratio:4/3;
-  background:linear-gradient(155deg, #8A9A7E, #4E5F45 60%, #253A2C);
+  object-fit:cover;
+  display:block;
+  background:var(--musgo);
 }
 .cabana__conteudo{ max-width:46ch; }
 .cabana__meta{
@@ -307,11 +317,12 @@ section{ position:relative; }
   margin:28px 0 24px;
 }
 .cabana__galeria-foto{
+  width:100%;
   aspect-ratio:1/1;
-  background:linear-gradient(160deg, #7C8D71, #3C4E37);
+  object-fit:cover;
+  display:block;
+  background:var(--musgo);
 }
-.cabana__galeria-item:nth-child(2) .cabana__galeria-foto{ background:linear-gradient(160deg, #92A184, #445639); }
-.cabana__galeria-item:nth-child(3) .cabana__galeria-foto{ background:linear-gradient(160deg, #6D7E62, #2E4028); }
 .cabana__galeria-legenda{
   margin-top:6px;
   font-size:0.62rem;
@@ -382,8 +393,10 @@ section{ position:relative; }
 }
 .arq__foto{
   width:100%;
-  aspect-ratio:5/6;
-  background:linear-gradient(150deg, #3C4E37, #16241A 65%, #0D160C);
+  aspect-ratio:3/2;
+  object-fit:cover;
+  display:block;
+  background:var(--carvao);
 }
 @media(min-width:768px){
   .arq{ grid-template-columns:1fr 1fr; gap:72px; }
@@ -398,11 +411,12 @@ section{ position:relative; }
 .fazenda-item__foto{
   width:100%;
   aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
   margin-bottom:18px;
 }
 .fazenda-item:nth-child(1) .fazenda-item__foto{ background:linear-gradient(160deg, #A9B79A, #5C6E54 60%, #2E3E29); }
 .fazenda-item:nth-child(2) .fazenda-item__foto{ background:linear-gradient(160deg, #7E9AA8, #3E5560 60%, #1D2A2E); }
-.fazenda-item:nth-child(3) .fazenda-item__foto{ background:linear-gradient(160deg, #91A181, #445639 60%, #202E1B); }
 .fazenda-item__titulo{
   font-size:1.5rem;
   font-family:'Instrument Serif', serif;
@@ -522,22 +536,18 @@ section{ position:relative; }
 
 <nav class="nav" id="nav">
   <a href="#topo" class="nav__brand">fazenda ressaca</a>
-  <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
-  <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="nav__cta">reservar</a>
+  <a href="https://fazendaressacas.lodgify.com/pt/cabanas" class="nav__cta">reservar</a>
 </nav>
 
 <main id="topo">
 
-  <!-- SUBSTITUIR: ao trocar o gradiente placeholder abaixo (e os demais placeholders de foto do documento) pela foto real,
-       usar <img src="..." alt="..." width="" height="" style="aspect-ratio:..." loading="lazy">.
-       Exceção: a foto do hero é o LCP — deve carregar eager, com fetchpriority="high" (sem loading="lazy"). -->
   <!-- HERO -->
   <section class="hero" aria-label="Fazenda Ressaca — cabana suspensa com hóspede no deck, foto principal">
+    <img class="hero__img" src="img/hero.jpg" alt="Cabana suspensa da Fazenda Ressaca entre a Mata Atlântica, com hóspede no deck" width="1400" height="944" fetchpriority="high">
     <div class="hero__inner">
       <h1 class="hero__headline serif" id="hero-headline">você, aqui.</h1>
       <p class="hero__sub">Duas cabanas na mata de Ubatuba. Alguns dias sem pressa.</p>
-      <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
-      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="hero__cta">reservar →</a>
+      <a href="https://fazendaressacas.lodgify.com/pt/cabanas" class="hero__cta">reservar →</a>
     </div>
   </section>
 
@@ -554,8 +564,7 @@ section{ position:relative; }
           <p>Silêncio. O tipo que só existe longe de estrada.</p>
         </div>
       </div>
-      <div class="exp__foto reveal" role="img" aria-label="Foto vertical da mata ao redor das cabanas — acervo fotográfico da fazenda"></div>
-      <!-- SUBSTITUIR: foto vertical real (acervo @jpimage_arq) da mata / trilha / entorno das cabanas -->
+      <img class="exp__foto reveal" src="img/exp-vertical.jpg" alt="Cabana da Fazenda Ressaca entre a vegetação da Mata Atlântica, projeto Pitta Arquitetura" width="800" height="1000" loading="lazy">
     </div>
   </section>
 
@@ -570,94 +579,77 @@ section{ position:relative; }
       <!-- JAGUATIRICA -->
       <div class="cabana reveal">
         <div>
-          <div class="cabana__foto" role="img" aria-label="Foto grande da cabana Jaguatirica suspensa na mata"></div>
-          <!-- SUBSTITUIR: foto principal real da Jaguatirica (acervo @jpimage_arq) -->
-          <!-- SUBSTITUIR: legenda técnica real da foto (o exemplo do brief "deck sul, fim de tarde" era só ilustração de formato, não dado real) -->
-          <p class="cabana__legenda">[jaguatirica — legenda técnica real]</p>
+          <img class="cabana__foto" src="img/jaguatirica-main.jpg" alt="Interior da Jaguatirica Jungle Cabin, com mobiliário desenhado sob medida" width="1100" height="825" loading="lazy">
+          <p class="cabana__legenda">jaguatirica jungle cabin</p>
         </div>
         <div class="cabana__conteudo">
           <div class="cabana__meta">
             <span>Jaguatirica</span>
-            <!-- SUBSTITUIR: confirmar capacidade real -->
-            <span>[capacidade]</span>
-            <!-- SUBSTITUIR: confirmar número de suítes real -->
-            <span>[suítes]</span>
-            <!-- SUBSTITUIR: confirmar vista real (mata / rio / vale) -->
-            <span>[vista]</span>
+            <span>2 pessoas</span>
+            <span>2 camas</span>
+            <span>1 banheiro</span>
           </div>
           <h3 class="cabana__nome serif">jaguatirica</h3>
           <div class="cabana__desc">
-            <!-- SUBSTITUIR: 2 linhas de caráter reais e específicas da Jaguatirica (o que a diferencia da Suçuarana) — não usar comodidades não confirmadas -->
-            <p>[SUBSTITUIR: linha 1 — característica real da Jaguatirica]</p>
-            <p>[SUBSTITUIR: linha 2 — característica real da Jaguatirica]</p>
+            <p>Um casulo de design entre a mata — móveis e moldura de espelho feitos sob medida para ela.</p>
+            <p>Banheira com vista para a Mata Atlântica. Café da manhã incluso, todos os dias.</p>
           </div>
           <div class="cabana__galeria">
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Interior da Jaguatirica"></div>
+              <img class="cabana__galeria-foto" src="img/jaguatirica-1.jpg" alt="Mobiliário sob medida da Jaguatirica" width="693" height="693" loading="lazy">
               <p class="cabana__galeria-legenda" aria-hidden="true">interior</p>
             </div>
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Banheira da Jaguatirica"></div>
-              <p class="cabana__galeria-legenda" aria-hidden="true">banheira</p>
+              <img class="cabana__galeria-foto" src="img/jaguatirica-2.jpg" alt="Janelas amplas integrando a Jaguatirica à mata" width="640" height="640" loading="lazy">
+              <p class="cabana__galeria-legenda" aria-hidden="true">janelas</p>
             </div>
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Deck da Jaguatirica"></div>
-              <p class="cabana__galeria-legenda" aria-hidden="true">deck</p>
+              <img class="cabana__galeria-foto" src="img/jaguatirica-3.jpg" alt="Banheira da Jaguatirica com vista para a Mata Atlântica" width="640" height="640" loading="lazy">
+              <p class="cabana__galeria-legenda" aria-hidden="true">banheira</p>
             </div>
           </div>
-          <!-- SUBSTITUIR: 3 fotos reais da Jaguatirica (interior / banheira / deck) -->
-          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
-          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="cabana__cta">reservar a jaguatirica →</a>
+          <a href="https://fazendaressacas.lodgify.com/pt/jaguatirica-jungle-cabin" class="cabana__cta">reservar a jaguatirica →</a>
         </div>
       </div>
 
       <div class="cabanas-divisor reveal">
         <p class="serif">Duas cabanas. A mesma experiência.<br>Desde R$ 850/noite.</p>
-        <!-- SUBSTITUIR: confirmar se o valor "desde R$ 850/noite" é o mesmo para as duas cabanas
-             ou se há variação por temporada / mínimo de noites -->
+        <!-- CONFIRMADO no motor de reservas real: preço varia por temporada, de R$800 (baixa) a R$1400 (alta, 24/12–14/02) — a frase acima é a mesma do site oficial atual -->
       </div>
 
       <!-- SUÇUARANA -->
       <div class="cabana cabana--inversa reveal">
         <div>
-          <div class="cabana__foto" role="img" aria-label="Foto grande da cabana Suçuarana suspensa na mata"></div>
-          <!-- SUBSTITUIR: foto principal real da Suçuarana (acervo @jpimage_arq) -->
-          <!-- SUBSTITUIR: legenda técnica real da foto (não inventar horário/ângulo até confirmar) -->
-          <p class="cabana__legenda">[suçuarana — legenda técnica real]</p>
+          <img class="cabana__foto" src="img/sucuarana-main.jpg" alt="Cabana Suçuarana, arquitetura que integra interior e exterior" width="1100" height="825" loading="lazy">
+          <p class="cabana__legenda">cabana suçuarana</p>
         </div>
         <div class="cabana__conteudo">
           <div class="cabana__meta">
             <span>Suçuarana</span>
-            <!-- SUBSTITUIR: confirmar capacidade real -->
-            <span>[capacidade]</span>
-            <!-- SUBSTITUIR: confirmar número de suítes real -->
-            <span>[suítes]</span>
-            <!-- SUBSTITUIR: confirmar vista real -->
-            <span>[vista]</span>
+            <span>2 pessoas</span>
+            <span>1 quarto</span>
+            <span>1 banheiro</span>
           </div>
           <h3 class="cabana__nome serif">suçuarana</h3>
           <div class="cabana__desc">
-            <!-- SUBSTITUIR: 2 linhas de caráter reais e específicas da Suçuarana (o que a diferencia da Jaguatirica) — não usar comodidades não confirmadas -->
-            <p>[SUBSTITUIR: linha 1 — característica real da Suçuarana]</p>
-            <p>[SUBSTITUIR: linha 2 — característica real da Suçuarana]</p>
+            <p>A cabana mais nova da fazenda — arquitetura pensada para dissolver a linha entre dentro e fora.</p>
+            <p>Acessível a cadeiras de rodas. Café da manhã incluso, limpeza diária.</p>
           </div>
           <div class="cabana__galeria">
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Interior da Suçuarana"></div>
+              <img class="cabana__galeria-foto" src="img/sucuarana-1.jpg" alt="Interior da Suçuarana" width="640" height="640" loading="lazy">
               <p class="cabana__galeria-legenda" aria-hidden="true">interior</p>
             </div>
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Varanda da Suçuarana"></div>
-              <p class="cabana__galeria-legenda" aria-hidden="true">varanda</p>
+              <img class="cabana__galeria-foto" src="img/sucuarana-2.jpg" alt="Detalhe de acabamento da Suçuarana" width="640" height="640" loading="lazy">
+              <p class="cabana__galeria-legenda" aria-hidden="true">detalhe</p>
             </div>
             <div class="cabana__galeria-item">
-              <div class="cabana__galeria-foto" role="img" aria-label="Chuveiro externo da Suçuarana"></div>
-              <p class="cabana__galeria-legenda" aria-hidden="true">chuveiro externo</p>
+              <img class="cabana__galeria-foto" src="img/sucuarana-3.jpg" alt="Entorno da Suçuarana em Ubatuba" width="693" height="693" loading="lazy">
+              <p class="cabana__galeria-legenda" aria-hidden="true">entorno</p>
             </div>
           </div>
-          <!-- SUBSTITUIR: 3 fotos reais da Suçuarana (interior / varanda / chuveiro externo) -->
-          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
-          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="cabana__cta">reservar a suçuarana →</a>
+          <a href="https://fazendaressacas.lodgify.com/pt/cabana-sucuarana" class="cabana__cta">reservar a suçuarana →</a>
         </div>
       </div>
     </div>
@@ -677,8 +669,7 @@ section{ position:relative; }
         </div>
         <p class="arq__credito">projeto @pittaarquitetura · fotografia @jpimage_arq</p>
       </div>
-      <div class="arq__foto reveal" role="img" aria-label="Detalhe arquitetônico da estrutura suspensa — aço, vidro e madeira"></div>
-      <!-- SUBSTITUIR: foto real de detalhe arquitetônico (acervo @jpimage_arq) -->
+      <img class="arq__foto reveal" src="img/arq-detail.jpg" alt="Detalhe arquitetônico da estrutura suspensa — aço, vidro e madeira, projeto Pitta Arquitetura" width="1200" height="800" loading="lazy">
     </div>
   </section>
 
@@ -695,22 +686,19 @@ section{ position:relative; }
           <div class="fazenda-item__foto" role="img" aria-label="Sede histórica da fazenda e piscina"></div>
           <!-- SUBSTITUIR: foto real da sede/piscina -->
           <h3 class="fazenda-item__titulo serif">a sede e a piscina</h3>
-          <!-- VALIDAR: acesso da sede/piscina é liberado para hóspedes das cabanas o tempo todo, em horário específico, ou só em eventos? -->
-          <p class="fazenda-item__texto">A sede histórica da fazenda, com piscina, guarda a memória do lugar.</p>
+          <p class="fazenda-item__texto">A sede histórica, com piscina, fica reservada à parte — hóspedes das cabanas têm acesso às trilhas, à cachoeira e às piscinas naturais.</p>
         </div>
         <div class="fazenda-item reveal">
           <div class="fazenda-item__foto" role="img" aria-label="Barco próprio da fazenda"></div>
           <!-- SUBSTITUIR: foto real do barco -->
           <h3 class="fazenda-item__titulo serif">o barco</h3>
-          <!-- VALIDAR: uso do barco é incluso na diária, opcional pago, ou sob consulta? -->
+          <!-- VALIDAR: uso do barco é incluso na diária, opcional pago, ou sob consulta? (não encontrado no motor de reservas) -->
           <p class="fazenda-item__texto">A fazenda tem um barco próprio para sair pela costa de Ubatuba.</p>
         </div>
         <div class="fazenda-item reveal">
-          <div class="fazenda-item__foto" role="img" aria-label="Rios e cachoeiras na propriedade"></div>
-          <!-- SUBSTITUIR: foto real dos rios/cachoeiras -->
+          <img class="fazenda-item__foto" src="img/fazenda-rios.jpg" alt="Vista aérea da reserva de Mata Atlântica dentro da Fazenda Ressaca" width="1100" height="687" loading="lazy">
           <h3 class="fazenda-item__titulo serif">os rios</h3>
-          <!-- VALIDAR: trilhas até as cachoeiras são autoguiadas ou acompanhadas? -->
-          <p class="fazenda-item__texto">Rios e cachoeiras correm pela propriedade.</p>
+          <p class="fazenda-item__texto">Cachoeira a dez minutos a pé da cabana, com piscinas naturais mais acima. Trilhas sinalizadas o ano todo.</p>
         </div>
       </div>
     </div>
@@ -746,16 +734,14 @@ section{ position:relative; }
       </div>
       <div class="reserva__caminhos reveal">
         <div>
-          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
-          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="reserva__primario">reservar direto</a>
+          <a href="https://fazendaressacas.lodgify.com/pt/cabanas" class="reserva__primario">reservar direto</a>
           <p class="reserva__micro">resposta rápida, sem taxa de plataforma</p>
         </div>
         <div>
-          <!-- SUBSTITUIR: href do Airbnb — link real do anúncio (Jaguatirica e/ou Suçuarana) -->
-          <a href="#" class="reserva__secundario" target="_blank" rel="noopener">ver no Airbnb →</a>
+          <a href="https://www.airbnb.com.br/rooms/1521853456194955868" class="reserva__secundario" target="_blank" rel="noopener">ver no Airbnb →</a>
         </div>
       </div>
-      <p class="reserva__ajuda">Precisa de ajuda? Fale com a gente.</p>
+      <p class="reserva__ajuda"><a href="https://wa.me/5512988978624?text=Ol%C3%A1%2C%20vi%20as%20cabanas%20no%20site%20e%20queria%20tirar%20uma%20d%C3%BAvida" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Precisa de ajuda? Fale com a gente.</a></p>
     </div>
   </section>
 
@@ -767,8 +753,7 @@ section{ position:relative; }
     <div class="footer__linhas">
       <p>Ubatuba — SP</p>
       <a href="https://instagram.com/fazenda_ressaca" target="_blank" rel="noopener">@fazenda_ressaca</a>
-      <!-- SUBSTITUIR: e-mail real de contato -->
-      <a href="mailto:#">e-mail</a>
+      <a href="mailto:pms@fazendaressaca.com">pms@fazendaressaca.com</a>
     </div>
     <!-- VALIDAR: crédito "site por Baruc Amare" — confirmar autorização antes de publicar -->
     <p class="footer__credito">site por Baruc Amare</p>

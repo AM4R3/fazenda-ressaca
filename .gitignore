@@ -1,1 +1,5 @@
 .vercel
+img-src/
+
+.vercel
+.env*
