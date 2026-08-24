@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba</title>
+<meta name="description" content="Cabana na mata Ubatuba: Jaguatirica e Suçuarana, hospedagem design Ubatuba dentro de uma reserva de Mata Atlântica. Duas cabanas suspensas, projeto de arquitetura assinado, fazenda com piscina, barco e rios. Desde R$ 850/noite.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fazendaressaca.com.br/">
+<!-- SUBSTITUIR: confirmar domínio final para canonical e OG -->
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fazenda Ressaca">
+<meta property="og:title" content="Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba">
+<meta property="og:description" content="Duas cabanas suspensas numa reserva de Mata Atlântica em Ubatuba. você, aqui.">
+<meta property="og:image" content="https://fazendaressaca.com.br/og-image.jpg">
+<!-- SUBSTITUIR: URL real da foto de OG (a foto do hero — cabana suspensa com hóspede no deck) -->
+<meta property="og:url" content="https://fazendaressaca.com.br/">
+<meta property="og:locale" content="pt_BR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fazenda Ressaca — Cabanas na Mata Atlântica · Ubatuba">
+<meta name="twitter:description" content="Duas cabanas suspensas numa reserva de Mata Atlântica em Ubatuba. você, aqui.">
+<meta name="twitter:image" content="https://fazendaressaca.com.br/og-image.jpg">
+<!-- SUBSTITUIR: URL real da foto de OG -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Fazenda Ressaca",
+  "description": "Situada em meio a uma reserva de Mata Atlântica, a Fazenda Ressaca é o refúgio perfeito para quem busca natureza, privacidade e conforto em Ubatuba.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ubatuba",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "priceRange": "A partir de R$ 850",
+  "image": "https://fazendaressaca.com.br/og-image.jpg",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "250"
+  }
+}
+</script>
+<!-- SUBSTITUIR: priceRange exato por cabana quando houver faixa real (acima usado apenas o piso conhecido, "R$ 850", sem inventar teto),
+     telephone (adicionar de volta o campo com o número de WhatsApp em formato E.164 quando existir), endereço completo (rua/CEP) se for divulgável -->
+
+<style>
+:root{
+  --linho: #F2EFE7;
+  --mata: #253A2C;
+  --musgo: #5C6E54;
+  --madeira: #8A6748;
+  --carvao: #22211E;
+
+  --fs-hero: clamp(2.6rem, 8vw, 6rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--linho);
+  color:var(--mata);
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight:400;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+
+a{ color:inherit; text-decoration:none; }
+
+.serif{
+  font-family:'Instrument Serif', Georgia, serif;
+  font-style:normal;
+  letter-spacing:-0.01em;
+}
+
+.container{
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.label{
+  font-family:'Inter', sans-serif;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--musgo);
+}
+
+.divider{
+  width:64px;
+  height:1px;
+  background:var(--mata);
+  border:none;
+  margin:0 0 24px 0;
+}
+.divider--claro{ background:var(--linho); opacity:0.5; }
+
+:focus-visible{
+  outline:2px solid var(--madeira);
+  outline-offset:3px;
+}
+.sec--escura :focus-visible,
+.nav:not(.is-scrolled) :focus-visible{
+  outline-color:var(--linho);
+}
+
+/* ============ REVEAL ============ */
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ transition:opacity 0.4s linear; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 24px;
+  background:transparent;
+  transition:background 0.5s var(--ease), padding 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.nav.is-scrolled{
+  background:var(--linho);
+  box-shadow:0 1px 0 rgba(37,58,44,0.12);
+}
+.nav__brand{
+  font-family:'Instrument Serif', serif;
+  font-size:1.35rem;
+  color:var(--linho);
+  transition:color 0.5s var(--ease);
+}
+.nav.is-scrolled .nav__brand{ color:var(--mata); }
+.nav__cta{
+  font-family:'Inter', sans-serif;
+  font-size:0.85rem;
+  font-weight:500;
+  color:var(--linho);
+  border-bottom:1px solid rgba(242,239,231,0.5);
+  padding-bottom:2px;
+  transition:color 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.nav.is-scrolled .nav__cta{
+  color:var(--mata);
+  border-color:rgba(37,58,44,0.4);
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:flex-end;
+  background:linear-gradient(160deg, #4A5D42, #253A2C 60%, #16241A);
+  /* placeholder da foto real: cabana suspensa com hóspede no deck, já usada na página atual */
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(22,36,26,0.55) 0%, rgba(22,36,26,0.05) 45%, rgba(22,36,26,0.15) 100%);
+  pointer-events:none;
+}
+.hero__inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:0 24px 64px;
+  color:var(--linho);
+}
+.hero__headline{
+  font-size:var(--fs-hero);
+  line-height:1.05;
+  font-weight:400;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.hero__headline.is-in{ opacity:1; transform:translateY(0); }
+.hero__sub{
+  margin-top:18px;
+  max-width:34ch;
+  font-size:1.05rem;
+  font-weight:400;
+  color:var(--linho);
+  opacity:0.92;
+}
+.hero__cta{
+  display:inline-block;
+  margin-top:32px;
+  font-size:0.95rem;
+  font-weight:500;
+  border-bottom:1px solid rgba(242,239,231,0.55);
+  padding-bottom:3px;
+  transition:opacity 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.hero__cta:hover{ opacity:0.75; border-color:var(--linho); }
+
+@media (prefers-reduced-motion: reduce){
+  .hero__headline{ opacity:1; transform:none; transition:none; }
+}
+
+/* ============ SEÇÃO GENÉRICA ============ */
+section{ position:relative; }
+.sec{ padding:96px 0; }
+.sec--escura{ background:var(--mata); color:var(--linho); }
+.sec--escura .label{ color:rgba(242,239,231,0.65); }
+.sec--escura .divider{ background:var(--linho); opacity:0.5; }
+
+/* ============ EXPERIÊNCIA ============ */
+.exp{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:48px;
+  align-items:center;
+}
+.exp__texto{ max-width:46ch; }
+.exp__titulo{
+  font-size:clamp(1.8rem, 4.5vw, 2.8rem);
+  line-height:1.15;
+  margin-bottom:28px;
+}
+.exp__linhas p{
+  font-size:1.02rem;
+  color:var(--mata);
+  margin-bottom:12px;
+  max-width:40ch;
+}
+.exp__foto{
+  width:100%;
+  aspect-ratio:3/4;
+  background:linear-gradient(150deg, #6B7B60, #3C4E37 55%, #1E2E1A);
+}
+@media(min-width:768px){
+  .exp{ grid-template-columns:1fr 1fr; gap:64px; }
+  .exp__foto{ aspect-ratio:4/5; justify-self:end; max-width:480px; }
+}
+
+/* ============ CABANAS ============ */
+.cabana{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:32px;
+  padding:56px 0;
+}
+.cabana__foto{
+  width:100%;
+  aspect-ratio:4/3;
+  background:linear-gradient(155deg, #8A9A7E, #4E5F45 60%, #253A2C);
+}
+.cabana__conteudo{ max-width:46ch; }
+.cabana__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  margin-bottom:20px;
+}
+.cabana__meta span{
+  font-size:0.7rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--mata);
+}
+.cabana__nome{
+  font-size:clamp(2rem, 6vw, 3.4rem);
+  line-height:1;
+  margin-bottom:18px;
+}
+.cabana__desc p{
+  font-size:1rem;
+  margin-bottom:10px;
+  color:var(--mata);
+}
+.cabana__galeria{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:8px 8px;
+  margin:28px 0 24px;
+}
+.cabana__galeria-foto{
+  aspect-ratio:1/1;
+  background:linear-gradient(160deg, #7C8D71, #3C4E37);
+}
+.cabana__galeria-item:nth-child(2) .cabana__galeria-foto{ background:linear-gradient(160deg, #92A184, #445639); }
+.cabana__galeria-item:nth-child(3) .cabana__galeria-foto{ background:linear-gradient(160deg, #6D7E62, #2E4028); }
+.cabana__galeria-legenda{
+  margin-top:6px;
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--musgo);
+}
+.cabana__cta{
+  display:inline-block;
+  font-size:0.92rem;
+  font-weight:500;
+  border-bottom:1px solid var(--mata);
+  padding-bottom:3px;
+  transition:opacity 0.3s var(--ease);
+}
+.cabana__cta:hover{ opacity:0.6; }
+.cabana__legenda{
+  margin-top:10px;
+  font-size:0.68rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--musgo);
+}
+
+@media(min-width:768px){
+  .cabana{ grid-template-columns:1.15fr 1fr; gap:64px; align-items:center; }
+  .cabana--inversa{ direction:rtl; }
+  .cabana--inversa > *{ direction:ltr; }
+}
+
+.cabanas-divisor{
+  text-align:center;
+  padding:56px 24px;
+  max-width:640px;
+  margin:0 auto;
+}
+.cabanas-divisor p{
+  font-size:clamp(1.3rem, 3.4vw, 1.9rem);
+  font-family:'Instrument Serif', serif;
+  line-height:1.35;
+}
+
+/* ============ ARQUITETURA ============ */
+.arq{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:48px;
+  align-items:center;
+}
+.arq__titulo{
+  font-size:clamp(1.9rem, 5vw, 3rem);
+  line-height:1.15;
+  margin-bottom:24px;
+  max-width:16ch;
+}
+.arq__linhas p{
+  font-size:1rem;
+  margin-bottom:12px;
+  max-width:42ch;
+  color:rgba(242,239,231,0.88);
+}
+.arq__credito{
+  margin-top:24px;
+  font-size:0.8rem;
+  letter-spacing:0.04em;
+  color:rgba(242,239,231,0.6);
+}
+.arq__foto{
+  width:100%;
+  aspect-ratio:5/6;
+  background:linear-gradient(150deg, #3C4E37, #16241A 65%, #0D160C);
+}
+@media(min-width:768px){
+  .arq{ grid-template-columns:1fr 1fr; gap:72px; }
+}
+
+/* ============ FAZENDA ============ */
+.fazenda-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
+}
+.fazenda-item__foto{
+  width:100%;
+  aspect-ratio:16/10;
+  margin-bottom:18px;
+}
+.fazenda-item:nth-child(1) .fazenda-item__foto{ background:linear-gradient(160deg, #A9B79A, #5C6E54 60%, #2E3E29); }
+.fazenda-item:nth-child(2) .fazenda-item__foto{ background:linear-gradient(160deg, #7E9AA8, #3E5560 60%, #1D2A2E); }
+.fazenda-item:nth-child(3) .fazenda-item__foto{ background:linear-gradient(160deg, #91A181, #445639 60%, #202E1B); }
+.fazenda-item__titulo{
+  font-size:1.5rem;
+  font-family:'Instrument Serif', serif;
+  margin-bottom:8px;
+}
+.fazenda-item__texto{ font-size:0.95rem; max-width:36ch; }
+@media(min-width:768px){
+  .fazenda-grid{ grid-template-columns:repeat(3, 1fr); gap:32px; }
+}
+
+/* ============ PROVA ============ */
+.prova{
+  text-align:left;
+  max-width:760px;
+}
+.prova__numero{
+  font-size:clamp(2.2rem, 6vw, 3.6rem);
+  line-height:1.1;
+  margin-bottom:36px;
+}
+.prova__quote{
+  font-size:clamp(1.2rem, 3vw, 1.55rem);
+  font-family:'Instrument Serif', serif;
+  line-height:1.4;
+  margin-bottom:18px;
+  max-width:34ch;
+}
+.prova__autor{
+  font-size:0.85rem;
+  color:var(--musgo);
+  letter-spacing:0.02em;
+}
+.prova__extra{
+  margin-top:48px;
+  font-size:0.85rem;
+  color:var(--musgo);
+}
+.prova__extra .divider{ margin-top:0; margin-bottom:32px; }
+
+/* ============ RESERVA ============ */
+.reserva{
+  text-align:left;
+}
+.reserva__titulo{
+  font-size:clamp(2.2rem, 6vw, 3.6rem);
+  margin-bottom:48px;
+}
+.reserva__caminhos{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+  max-width:640px;
+}
+.reserva__primario{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--linho);
+  color:var(--mata);
+  font-weight:600;
+  font-size:0.85rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:20px 32px;
+  transition:opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.reserva__primario:hover{ opacity:0.88; }
+.reserva__micro{
+  margin-top:12px;
+  font-size:0.82rem;
+  color:rgba(242,239,231,0.65);
+}
+.reserva__secundario{
+  display:inline-block;
+  font-size:0.95rem;
+  color:var(--linho);
+  border-bottom:1px solid rgba(242,239,231,0.45);
+  padding-bottom:3px;
+  width:fit-content;
+}
+.reserva__ajuda{
+  margin-top:56px;
+  font-size:0.95rem;
+  color:rgba(242,239,231,0.8);
+}
+@media(min-width:768px){
+  .reserva__caminhos{ grid-template-columns:auto auto; align-items:start; gap:64px; }
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--carvao);
+  color:var(--linho);
+  padding:56px 0 28px;
+}
+.footer__brand{
+  font-family:'Instrument Serif', serif;
+  font-size:1.4rem;
+  margin-bottom:14px;
+}
+.footer__linhas p, .footer__linhas a{
+  font-size:0.88rem;
+  color:rgba(242,239,231,0.75);
+  margin-bottom:6px;
+  display:block;
+  width:fit-content;
+}
+.footer__linhas a:hover{ color:var(--linho); }
+.footer__credito{
+  margin-top:40px;
+  font-size:0.75rem;
+  opacity:0.35;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#topo" class="nav__brand">fazenda ressaca</a>
+  <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
+  <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="nav__cta">reservar</a>
+</nav>
+
+<main id="topo">
+
+  <!-- SUBSTITUIR: ao trocar o gradiente placeholder abaixo (e os demais placeholders de foto do documento) pela foto real,
+       usar <img src="..." alt="..." width="" height="" style="aspect-ratio:..." loading="lazy">.
+       Exceção: a foto do hero é o LCP — deve carregar eager, com fetchpriority="high" (sem loading="lazy"). -->
+  <!-- HERO -->
+  <section class="hero" aria-label="Fazenda Ressaca — cabana suspensa com hóspede no deck, foto principal">
+    <div class="hero__inner">
+      <h1 class="hero__headline serif" id="hero-headline">você, aqui.</h1>
+      <p class="hero__sub">Duas cabanas na mata de Ubatuba. Alguns dias sem pressa.</p>
+      <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
+      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="hero__cta">reservar →</a>
+    </div>
+  </section>
+
+  <!-- A EXPERIÊNCIA -->
+  <section class="sec" aria-label="A experiência">
+    <div class="container exp">
+      <div class="exp__texto reveal">
+        <hr class="divider">
+        <p class="label">A experiência</p>
+        <h2 class="exp__titulo serif">Uma reserva de Mata Atlântica.<br>Uma fazenda. Duas cabanas.<br>E mais nada por perto.</h2>
+        <div class="exp__linhas">
+          <p>Privacidade de verdade — a cabana mais próxima está a uma trilha de distância, não a uma parede.</p>
+          <p>Natureza que não é paisagem de fundo: é reserva, é mata em pé, é o que se vê da cama.</p>
+          <p>Silêncio. O tipo que só existe longe de estrada.</p>
+        </div>
+      </div>
+      <div class="exp__foto reveal" role="img" aria-label="Foto vertical da mata ao redor das cabanas — acervo fotográfico da fazenda"></div>
+      <!-- SUBSTITUIR: foto vertical real (acervo @jpimage_arq) da mata / trilha / entorno das cabanas -->
+    </div>
+  </section>
+
+  <!-- AS CABANAS -->
+  <section class="sec" aria-label="As cabanas" id="cabanas">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:8px;">
+        <hr class="divider">
+        <h2 class="label">As cabanas</h2>
+      </div>
+
+      <!-- JAGUATIRICA -->
+      <div class="cabana reveal">
+        <div>
+          <div class="cabana__foto" role="img" aria-label="Foto grande da cabana Jaguatirica suspensa na mata"></div>
+          <!-- SUBSTITUIR: foto principal real da Jaguatirica (acervo @jpimage_arq) -->
+          <!-- SUBSTITUIR: legenda técnica real da foto (o exemplo do brief "deck sul, fim de tarde" era só ilustração de formato, não dado real) -->
+          <p class="cabana__legenda">[jaguatirica — legenda técnica real]</p>
+        </div>
+        <div class="cabana__conteudo">
+          <div class="cabana__meta">
+            <span>Jaguatirica</span>
+            <!-- SUBSTITUIR: confirmar capacidade real -->
+            <span>[capacidade]</span>
+            <!-- SUBSTITUIR: confirmar número de suítes real -->
+            <span>[suítes]</span>
+            <!-- SUBSTITUIR: confirmar vista real (mata / rio / vale) -->
+            <span>[vista]</span>
+          </div>
+          <h3 class="cabana__nome serif">jaguatirica</h3>
+          <div class="cabana__desc">
+            <!-- SUBSTITUIR: 2 linhas de caráter reais e específicas da Jaguatirica (o que a diferencia da Suçuarana) — não usar comodidades não confirmadas -->
+            <p>[SUBSTITUIR: linha 1 — característica real da Jaguatirica]</p>
+            <p>[SUBSTITUIR: linha 2 — característica real da Jaguatirica]</p>
+          </div>
+          <div class="cabana__galeria">
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Interior da Jaguatirica"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">interior</p>
+            </div>
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Banheira da Jaguatirica"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">banheira</p>
+            </div>
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Deck da Jaguatirica"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">deck</p>
+            </div>
+          </div>
+          <!-- SUBSTITUIR: 3 fotos reais da Jaguatirica (interior / banheira / deck) -->
+          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
+          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="cabana__cta">reservar a jaguatirica →</a>
+        </div>
+      </div>
+
+      <div class="cabanas-divisor reveal">
+        <p class="serif">Duas cabanas. A mesma experiência.<br>Desde R$ 850/noite.</p>
+        <!-- SUBSTITUIR: confirmar se o valor "desde R$ 850/noite" é o mesmo para as duas cabanas
+             ou se há variação por temporada / mínimo de noites -->
+      </div>
+
+      <!-- SUÇUARANA -->
+      <div class="cabana cabana--inversa reveal">
+        <div>
+          <div class="cabana__foto" role="img" aria-label="Foto grande da cabana Suçuarana suspensa na mata"></div>
+          <!-- SUBSTITUIR: foto principal real da Suçuarana (acervo @jpimage_arq) -->
+          <!-- SUBSTITUIR: legenda técnica real da foto (não inventar horário/ângulo até confirmar) -->
+          <p class="cabana__legenda">[suçuarana — legenda técnica real]</p>
+        </div>
+        <div class="cabana__conteudo">
+          <div class="cabana__meta">
+            <span>Suçuarana</span>
+            <!-- SUBSTITUIR: confirmar capacidade real -->
+            <span>[capacidade]</span>
+            <!-- SUBSTITUIR: confirmar número de suítes real -->
+            <span>[suítes]</span>
+            <!-- SUBSTITUIR: confirmar vista real -->
+            <span>[vista]</span>
+          </div>
+          <h3 class="cabana__nome serif">suçuarana</h3>
+          <div class="cabana__desc">
+            <!-- SUBSTITUIR: 2 linhas de caráter reais e específicas da Suçuarana (o que a diferencia da Jaguatirica) — não usar comodidades não confirmadas -->
+            <p>[SUBSTITUIR: linha 1 — característica real da Suçuarana]</p>
+            <p>[SUBSTITUIR: linha 2 — característica real da Suçuarana]</p>
+          </div>
+          <div class="cabana__galeria">
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Interior da Suçuarana"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">interior</p>
+            </div>
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Varanda da Suçuarana"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">varanda</p>
+            </div>
+            <div class="cabana__galeria-item">
+              <div class="cabana__galeria-foto" role="img" aria-label="Chuveiro externo da Suçuarana"></div>
+              <p class="cabana__galeria-legenda" aria-hidden="true">chuveiro externo</p>
+            </div>
+          </div>
+          <!-- SUBSTITUIR: 3 fotos reais da Suçuarana (interior / varanda / chuveiro externo) -->
+          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
+          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="cabana__cta">reservar a suçuarana →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A ARQUITETURA -->
+  <section class="sec sec--escura" aria-label="A arquitetura">
+    <div class="container arq">
+      <div class="reveal">
+        <hr class="divider divider--claro">
+        <p class="label">A arquitetura</p>
+        <h2 class="arq__titulo serif">Projetadas para desaparecer na copa das árvores.</h2>
+        <div class="arq__linhas">
+          <p>Projeto assinado por Pitta Arquitetura — estrutura de aço, vidro e madeira, suspensa entre os troncos.</p>
+          <p>Nenhuma árvore derrubada para erguer as cabanas. A mata segue no lugar dela; a arquitetura se ajusta a ela.</p>
+          <p>Fotografia de arquitetura por jpimage_arq — o mesmo olhar que registra o projeto registra a estadia.</p>
+        </div>
+        <p class="arq__credito">projeto @pittaarquitetura · fotografia @jpimage_arq</p>
+      </div>
+      <div class="arq__foto reveal" role="img" aria-label="Detalhe arquitetônico da estrutura suspensa — aço, vidro e madeira"></div>
+      <!-- SUBSTITUIR: foto real de detalhe arquitetônico (acervo @jpimage_arq) -->
+    </div>
+  </section>
+
+  <!-- A FAZENDA -->
+  <section class="sec" aria-label="A fazenda">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:48px;">
+        <hr class="divider">
+        <p class="label">A fazenda</p>
+        <h2 class="exp__titulo serif" style="max-width:20ch;">Mais do que as cabanas — a fazenda inteira ao redor.</h2>
+      </div>
+      <div class="fazenda-grid">
+        <div class="fazenda-item reveal">
+          <div class="fazenda-item__foto" role="img" aria-label="Sede histórica da fazenda e piscina"></div>
+          <!-- SUBSTITUIR: foto real da sede/piscina -->
+          <h3 class="fazenda-item__titulo serif">a sede e a piscina</h3>
+          <!-- VALIDAR: acesso da sede/piscina é liberado para hóspedes das cabanas o tempo todo, em horário específico, ou só em eventos? -->
+          <p class="fazenda-item__texto">A sede histórica da fazenda, com piscina, guarda a memória do lugar.</p>
+        </div>
+        <div class="fazenda-item reveal">
+          <div class="fazenda-item__foto" role="img" aria-label="Barco próprio da fazenda"></div>
+          <!-- SUBSTITUIR: foto real do barco -->
+          <h3 class="fazenda-item__titulo serif">o barco</h3>
+          <!-- VALIDAR: uso do barco é incluso na diária, opcional pago, ou sob consulta? -->
+          <p class="fazenda-item__texto">A fazenda tem um barco próprio para sair pela costa de Ubatuba.</p>
+        </div>
+        <div class="fazenda-item reveal">
+          <div class="fazenda-item__foto" role="img" aria-label="Rios e cachoeiras na propriedade"></div>
+          <!-- SUBSTITUIR: foto real dos rios/cachoeiras -->
+          <h3 class="fazenda-item__titulo serif">os rios</h3>
+          <!-- VALIDAR: trilhas até as cachoeiras são autoguiadas ou acompanhadas? -->
+          <p class="fazenda-item__texto">Rios e cachoeiras correm pela propriedade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA -->
+  <section class="sec" aria-label="Prova social">
+    <div class="container prova">
+      <div class="reveal">
+        <hr class="divider">
+        <h2 class="label">Quem já esteve aqui</h2>
+        <p class="prova__numero serif">250+ avaliações 5 estrelas desde 2022</p>
+        <p class="prova__quote serif">"Sem dúvida, um dos lugares mais incríveis em que já fiquei na vida. A natureza ao redor é maravilhosa, e a arquitetura e beleza do espaço são de tirar o fôlego."</p>
+        <p class="prova__autor">— Maria, Vancouver, Canadá</p>
+        <div class="prova__extra">
+          <hr class="divider">
+          <!-- SUBSTITUIR: depoimento real nº2 (nome, cidade/país, texto) -->
+          <!-- SUBSTITUIR: depoimento real nº3 (nome, cidade/país, texto) -->
+          <!-- SUBSTITUIR: logos/nomes dos veículos de imprensa que já cobriram a fazenda, com link quando houver -->
+          <p class="label" style="margin-bottom:0;">Já na imprensa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVA -->
+  <section class="sec sec--escura" aria-label="Reserva" id="reservar">
+    <div class="container reserva">
+      <div class="reveal">
+        <hr class="divider divider--claro">
+        <p class="label">Reserva</p>
+        <h2 class="reserva__titulo serif">Alguns dias aqui.</h2>
+      </div>
+      <div class="reserva__caminhos reveal">
+        <div>
+          <!-- SUBSTITUIR: número real de WhatsApp (mensagem já preenchida com o texto real) -->
+          <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20reservar%20uma%20cabana%20na%20Fazenda%20Ressaca.%20Podem%20me%20ajudar%20com%20as%20datas%3F" class="reserva__primario">reservar direto</a>
+          <p class="reserva__micro">resposta rápida, sem taxa de plataforma</p>
+        </div>
+        <div>
+          <!-- SUBSTITUIR: href do Airbnb — link real do anúncio (Jaguatirica e/ou Suçuarana) -->
+          <a href="#" class="reserva__secundario" target="_blank" rel="noopener">ver no Airbnb →</a>
+        </div>
+      </div>
+      <p class="reserva__ajuda">Precisa de ajuda? Fale com a gente.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer__brand serif">fazenda ressaca</p>
+    <div class="footer__linhas">
+      <p>Ubatuba — SP</p>
+      <a href="https://instagram.com/fazenda_ressaca" target="_blank" rel="noopener">@fazenda_ressaca</a>
+      <!-- SUBSTITUIR: e-mail real de contato -->
+      <a href="mailto:#">e-mail</a>
+    </div>
+    <!-- VALIDAR: crédito "site por Baruc Amare" — confirmar autorização antes de publicar -->
+    <p class="footer__credito">site por Baruc Amare</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if(window.scrollY > 40){
+      nav.classList.add('is-scrolled');
+    } else {
+      nav.classList.remove('is-scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // hero headline fade-in
+  var heroHeadline = document.getElementById('hero-headline');
+  window.requestAnimationFrame(function(){
+    setTimeout(function(){
+      heroHeadline.classList.add('is-in');
+    }, 120);
+  });
+
+  // reveal on scroll
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  function showAll(){
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(prefersReduced){
+    showAll();
+  } else if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 15% 0px' });
+
+    reveals.forEach(function(el){ observer.observe(el); });
+
+    // fallback contra observer falho
+    setTimeout(showAll, 3000);
+  } else {
+    showAll();
+  }
+})();
+</script>
+
+</body>
+</html>
